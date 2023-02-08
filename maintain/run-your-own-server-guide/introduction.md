@@ -18,9 +18,21 @@
 - Register VPS public IP address to your DNS
 
 ## Install
+### Login as Root
+```bash
+sudo su
+```
+### Preparing base folder
+```bash
+mkdir /myriad && cd /myriad
+```
 ### Checking out the code
 ```bash
 git clone https://github.com/myriadsocial/myriad-api.git
+```
+### Entering main folder
+```bash
+cd myriad-api
 ```
 ### Prepare environment file
 ```bash
