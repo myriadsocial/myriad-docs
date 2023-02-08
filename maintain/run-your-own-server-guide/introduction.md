@@ -58,8 +58,7 @@ docker compose -p myriad -f ./.maintain/deployment/docker-compose.yml --env-file
 ```bash
 ./.maintain/deployment/init-webserver.sh
 ```
-> Trouble shooting
-> if there is an error when initializing webserver, do this:
+> If there is an error when initializing webserver, do this:
 >- Delete webserver folder
 >```bash
 >rm -rf ./.local/certbot ./.local/nginx
