@@ -1,29 +1,48 @@
-# Run Your Onw Server Guide
+# Run Your Own Server Guide
 
-> A simple step using docker image.
+> A simple step using prebuilt docker image.
 
-## Prepare Owner Wallet Address
-- Install Polkadot.js
-- Create account
+## Prerequisite
+- DNS (Domain Name Server)
+- VPS (Virtual Private Server)
+- Email
+- Polkadot Wallet
+- Near Wallet
 
-## Register Server
-- Go to this link
-- Fill server name
-- Fill owner wallet address
+## Preparing VPS
+- Minimum System Requirement
+    - 2 Core CPU
+    - 8 GB Memory
+    - 20 GB Virtual Disk
+- Install Docker Engine and Docker Compose, check installtion setup on [Docker Official Website](https://docs.docker.com/engine/install/debian)
+- Register VPS public IP address to your DNS
 
-## Prepare 3rd party
-- Twitter API Key
-- Facebook App Id
-- Coin Marketcap API Key
-- Firebase
-- Sentry
-
-## Prepare Machine
-- Install docker
-- Install docker-compose
-
-## Configuration
-- Fill environment variable
-
-## Running myriad
-- docker-compose up -d
+## Install
+### Checking out the code
+```bash
+git clone https://github.com/myriadsocial/myriad-api.git
+```
+### Prepare environment file
+```bash
+cp ./.maintain/deployment/.env-template ./.env
+```
+### Configure environment file
+```bash
+vim .env
+```
+### Run service
+```bash
+docker compose -p myriad -f ./.maintain/deployment/docker-compose.yml --env-file ./.env --profile webserver up -d
+```
+### Change storage permission
+```bash
+chown -R 1001 ./.local/storages
+```
+### Run database migration
+```bash
+docker compose -p myriad -f ./.maintain/deployment/docker-compose.yml --env-file ./.env run --rm db_migration --rebuild --environment mainnet
+```
+### Setup webserver
+```bash
+./.maintain/deployment/init-webserver.sh
+```
