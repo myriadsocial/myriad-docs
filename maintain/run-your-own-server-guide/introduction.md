@@ -10,7 +10,7 @@
 - Near Wallet
 
 ## Preparing VPS
-- Minimum System Requirement
+- Recommended System Requirement
     - 2 Core CPU
     - 8 GB Memory
     - 20 GB Virtual Disk
