@@ -10,10 +10,10 @@
 - Near Wallet
 
 ## Preparing VPS
-- Recommended System Requirement
+- Recommended Minimum System Requirement
     - 2 Core CPU
-    - 8 GB Memory
-    - 20 GB Virtual Disk
+    - 4 GB Memory
+    - 10 GB Virtual Disk
 - Install Docker Engine and Docker Compose, check installtion setup on [Docker Official Website](https://docs.docker.com/engine/install/debian)
 - Register VPS public IP address to your DNS
 
