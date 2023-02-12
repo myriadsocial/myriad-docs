@@ -182,40 +182,7 @@ Once you are done editing the environment variables, you are ready to run the no
 docker compose -p myriad -f ./.maintain/deployment/docker-compose.yml --env-file ./.env --profile webserver up -d
 ```
 
-After running the script above, verify if everything is running by executing `docker ps`. 
-
-To automate the node when the server reboots, create a `systemd` service:
-
-```
-[Unit]
-Description=Myriad Social node with Docker Compose
-PartOf=docker.service
-After=docker.service
-
-[Service]
-Type=oneshot
-RemainAfterExit=true
-WorkingDirectory=/myriad/myriad-api
-ExecStart=/*which docker* compose up -d --remove-orphans
-ExecStop=/*which docker* compose down
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Name the file `myriadnode.service`, and then execute:
-
-```
-systemctl start myriadnode.service
-```
-
-Check if everything is running with the following:
-
-```
-systemctl status myriadnode.service
-```
-
-If there are no errors, continue modifying the storage directory owner.
+After running the script above, verify if everything is running by executing `docker ps`. If there are no errors, continue modifying the storage directory owner.
 
 ```
 chown -R 1001 ./.local/storages
