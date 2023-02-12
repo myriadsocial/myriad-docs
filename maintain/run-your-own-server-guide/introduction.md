@@ -68,14 +68,14 @@ If you are installing on a Linux machine, make sure you have root access. Becaus
 ### Login as Root
 Start by logging in to your server as root. Either ssh directly as root or type sudo su in your terminal to gain root privileges.
 
-```
+```bash
 sudo su
 ```
 
 ### Installing Git
 To proceed, you will need to download the entirety of Myriad Social's source code from GitHub. If your machine doesn't have Git already, install it by running this in your terminal.
 
-```
+```bash
 apt install git-all
 ```
 
@@ -86,7 +86,7 @@ You can read a more [defined tutorial](https://docs.docker.com/engine/install/ub
 
 First, update your Distro and get the required packages for Docker.
 
-```
+```bash
 apt-get update
 apt-get install \
     ca-certificates \
@@ -97,14 +97,14 @@ apt-get install \
 
 Add Docker's official GPG key.
 
-```
+```bash
 mkdir -m 0755 -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 ```
 
 Setup Docker's official package repository.
 
-```
+```bash
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -112,27 +112,27 @@ echo \
 
 After installing the repository, update the package manager to propagate the changes.
 
-```
+```bash
 apt-get update
 ```
 
 Finally, install the Docker engine along with Docker Compose.
 
-```
+```bash
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 ### Preparing Base Folder
 Make a base directory for Myriad Social. You can do it anywhere as long as you have sufficient permissions to create and modify the directory. In this specific tutorial, however, you are going to prepare the folder within the root directory named myriad:
 
-```
+```bash
 mkdir /myriad && cd /myriad
 ```
 
 ###  Downloading the Source from GitHub
 Myriad Social does not yet have a particular Docker image, so you must download and run everything from the source. 
 
-```
+```bash
 git clone https://github.com/myriadsocial/myriad-api.git && cd myriad-api
 ```
 
@@ -141,7 +141,7 @@ The environment variables are the only configurations you will need to set for t
 
 First, copy all the .env contents:
 
-```
+```bash
 cp ./.maintain/deployment/.env-template ./.env
 ```
 
@@ -178,19 +178,19 @@ For the API_VERSION parameter, you can retrieve the latest digest directly from 
 ### Run Service
 Once you are done editing the environment variables, you are ready to run the node. You can run the node using Docker Compose:
 
-```
+```bash
 docker compose -p myriad -f ./.maintain/deployment/docker-compose.yml --env-file ./.env --profile webserver up -d
 ```
 
 After running the script above, verify if everything is running by executing `docker ps`. If there are no errors, continue modifying the storage directory owner.
 
-```
+```bash
 chown -R 1001 ./.local/storages
 ```
 
 Next, run the database migrations.
 
-```
+```bash
 docker compose -p myriad -f ./.maintain/deployment/docker-compose.yml --env-file ./.env run --rm db_migration --rebuild --environment mainnet
 ```
 
@@ -198,19 +198,19 @@ docker compose -p myriad -f ./.maintain/deployment/docker-compose.yml --env-file
 
 Finally, set up NGINX and redirect traffic to your Myriad Social node. Execute the following script:
 
-```
+```bash
 ./.maintain/deployment/init-webserver.sh
 ```
 
 If there is an error when initializing the webserver, delete the webserver folder:
 
-```
+```bash
 rm -rf ./.local/certbot ./.local/nginx
 ```
 
 Re-run the webserver initialization:
 
-```
+```bash
 ./.maintain/deployment/init-webserver.sh
 ```
 
