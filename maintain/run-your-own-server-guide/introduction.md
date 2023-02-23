@@ -179,7 +179,7 @@ For the API_VERSION parameter, you can retrieve the latest digest directly from 
 Once you are done editing the environment variables, you are ready to run the node. You can run the node using Docker Compose:
 
 ```bash
-docker compose -p myriad -f ./.maintain/deployment/docker-compose.yml --env-file ./.env --profile webserver up -d
+docker compose -p myriad -f ./.maintain/deployment/docker-compose.yaml --env-file ./.env --profile webserver up -d
 ```
 
 After running the script above, verify if everything is running by executing `docker ps`. If there are no errors, continue modifying the storage directory owner.
@@ -191,7 +191,7 @@ chown -R 1001 ./.local/storages
 Next, run the database migrations.
 
 ```bash
-docker compose -p myriad -f ./.maintain/deployment/docker-compose.yml --env-file ./.env run --rm db_migration --rebuild --environment mainnet
+docker compose -p myriad -f ./.maintain/deployment/docker-compose.yaml --env-file ./.env run --rm db_migration --rebuild --environment mainnet
 ```
 
 **Note: Please note that you will run the Myriad Social node in the Mainnet, not Testnet.**
