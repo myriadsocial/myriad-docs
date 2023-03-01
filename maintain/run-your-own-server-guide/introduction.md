@@ -109,11 +109,7 @@ SMTP_USERNAME=*your gmail*
 SMTP_PASSWORD=*your gmail password*
 ```
 
-Press `esc` to finish editing, and then save the file
-
-```
-`:wq`
-```
+Press `esc` to finish editing, save the file by type `:wq`, and then press `enter`
 
 ### Run Service
 Once you are done editing the environment variables, you are ready to run the instance. You can run the instance using Docker Compose:
