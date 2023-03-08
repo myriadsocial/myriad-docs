@@ -88,10 +88,11 @@ API_VERSION=*set to `latest` or choose version from https://github.com/myriadsoc
 DOMAIN=*the domain you are using for your instance*
 
 # Wallet
-MYRIAD_ADMIN_SUBSTRATE_MNEMONIC=*mnemonic, when you cretae new wallet in any wallet provider, you will get this mnemonic*
-MYRIAD_ADMIN_NEAR_MNEMONIC=*mnemonic, when you cretae new wallet in any wallet provider, you will get this mnemonic*
+MYRIAD_ADMIN_SUBSTRATE_MNEMONIC=*12/24 random words generated when creating a new wallet in any provider*
+MYRIAD_ADMIN_NEAR_MNEMONIC=*12/24 random words generated when creating a new wallet in any provider*
 
 # JWT
+# Go to this site https://www.random.org/strings/?num=2&len=16&digits=on&upperalpha=on&loweralpha=on&unique=on&format=html&rnd=new
 JWT_TOKEN_SECRET_KEY=*write a 16 character random string key*
 JWT_REFRESH_TOKEN_SECRET_KEY=*write a 16 character random string key*
 
