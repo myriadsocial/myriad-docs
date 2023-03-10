@@ -92,9 +92,10 @@ MYRIAD_ADMIN_SUBSTRATE_MNEMONIC=*12/24 random words generated when creating a ne
 MYRIAD_ADMIN_NEAR_MNEMONIC=*12/24 random words generated when creating a new wallet in any provider*
 
 # JWT
-# Go to this site https://www.random.org/strings/?num=2&len=16&digits=on&upperalpha=on&loweralpha=on&unique=on&format=html&rnd=new
-JWT_TOKEN_SECRET_KEY=*write a 16 character random string key*
-JWT_REFRESH_TOKEN_SECRET_KEY=*write a 16 character random string key*
+# Go to this site https://www.random.org/strings/?num=1&len=16&digits=on&upperalpha=on&loweralpha=on&unique=on&format=html&rnd=new
+JWT_TOKEN_SECRET_KEY=*write a 16 characters random string key*
+# Go to this site https://www.random.org/strings/?num=1&len=16&digits=on&upperalpha=on&loweralpha=on&unique=on&format=html&rnd=new
+JWT_REFRESH_TOKEN_SECRET_KEY=*write a 16 characters random string key*
 
 # MONGO
 MONGO_USER=*write some user name*
